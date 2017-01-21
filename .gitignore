@@ -29,4 +29,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+<<<<<<< HEAD
 BuildingShooter/Temp/
+=======
+#Temp
+BuildingShooter/Temp
+>>>>>>> f2b57c1dd387191a061fef310245edfb059f0706
