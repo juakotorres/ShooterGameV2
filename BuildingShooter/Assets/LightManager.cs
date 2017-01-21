@@ -6,11 +6,12 @@ public class LightManager : MonoBehaviour {
 
     public Light lucesita;
     public GameObject  imagen;
-    private SpriteRenderer render;
+    private MeshRenderer render;
 
 	// Use this for initialization
 	void Start () {
-        render = imagen.GetComponent<SpriteRenderer>();
+        render = imagen.GetComponent<MeshRenderer>();
+        TurnOff();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +27,7 @@ public class LightManager : MonoBehaviour {
     public void TurnOn()
     {
         render.enabled = true;
-        lucesita.intensity = 0.1F;
+        lucesita.intensity = 0.5F;
     }
 
 
