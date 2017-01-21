@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour {
 	private float currentY;
 	private float sensivilityX;
 	private float sensivilityY;
+	private Quaternion rotation;
 
 	// Use this for initialization
 	private void Start () {
@@ -24,20 +25,15 @@ public class CameraController : MonoBehaviour {
 		sensivilityX = 3.0f;
 		sensivilityY = 1.0f;
 		cam = Camera.main;
+		rotation = Quaternion.Euler (50.0f, 0.0f, 0.0f);
+
 
 	}
 
-	private void Update () {
-		currentX += Input.GetAxis ("Mouse Y");
-		currentY += Input.GetAxis ("Mouse X");
-		currentY = Mathf.Clamp (currentY,0,50.0f);
-		currentX = Mathf.Clamp (currentX,0,50.0f);
-	}
 	
 	// Update is called once per frame
 	private void LateUpdate () {
 		Vector3 dir = new Vector3 (0, 0, -distance);
-		Quaternion rotation = Quaternion.Euler (currentX, currentY, 0);
 		camPosition.position = lookAt.position + rotation * dir;
 		camPosition.LookAt (lookAt.position);
 	}

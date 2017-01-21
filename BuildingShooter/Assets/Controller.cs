@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Controller : MonoBehaviour {
+	public Player player;
 
-	// Use this for initialization
-	void Start () {
-		
+	private float horizontalAxis;
+	private float verticalAxis;
+
+	private void Start() {
+		player = gameObject.GetComponent<Player> ();
+		horizontalAxis = 0;
+		verticalAxis = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void Update() {
+		horizontalAxis = Input.GetAxis ("Horizontal");
+		verticalAxis = Input.GetAxis ("Vertical");
+		player.setSpeedX (horizontalAxis); 
+		player.setSpeedZ(verticalAxis);
+
 	}
 }
